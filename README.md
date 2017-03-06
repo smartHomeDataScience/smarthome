@@ -1,7 +1,5 @@
 # smarthome
 
-#### ---------------------------------------
-## Weihua notes
 ### Useful Information
 * Cleaned data url: https://data.bris.ac.uk/data/dataset/8gccwpx47rav19vk8x4xapcog
 * Association Mining Algorithm: http://www.borgelt.net/software.html
@@ -13,5 +11,5 @@
 * Please edit root directory on the line 6
 * Make sure your mongodb service is on ('brew services mongod start' if you use mac os brew)
 * Recommend use mongoBooster to visualize database: https://mongobooster.com/
-#### ---------------------------------------
+
 
