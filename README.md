@@ -9,9 +9,8 @@
 
 ### readData
 * Python version: python3
-* Require install pymongo, you can use command: pip install pymongo
+* Require to install pymongo, you can use command: pip install pymongo
 * Please edit root directory on the line 6
 * Make sure your mongodb service is on ('brew services mongod start' if you use mac os brew)
 * Recommend using mongoBooster to visualize database: https://mongobooster.com/
-
-
+* It takes 5-6 minutes to store everything
