@@ -25,7 +25,8 @@ class DataProcessor(object):
                         dict = {}
                         dict['t']=i
                         dict['pid']=count
-                        dict['location']=item['index']
+                        dict['index']=item['index']
+                        dict['name'] = item['name']
                         self.db.timeBasedLocation.insert_one(dict)
                 print('done!\n')
             count+=1
@@ -41,7 +42,8 @@ class DataProcessor(object):
                         dict = {}
                         dict['t'] = i
                         dict['pid'] = count
-                        dict['annotations'] = item['index']
+                        dict['index'] = item['index']
+                        dict['name'] = item['name']
                         self.db.timeBasedAnnotations.insert_one(dict)
             print('done!\n')
             count += 1
