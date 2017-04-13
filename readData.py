@@ -30,22 +30,22 @@ class DataProcessor(object):
             # except:
             #     print('no such file: %s/acceleration.csv...\n'%d)
 
-            # try:
-            #     print('loading %s/annotations_0.csv...'%d)
-            #     with open(d+'/annotations_0.csv', 'r') as f:
-            #         reader = csv.DictReader(f)
-            #         for item in reader:
-            #             for k, v in item.items():
-            #                 try:
-            #                     item[k] = float(v)
-            #                 except:
-            #                     pass
-            #             item['pid'] = count
-            #             self.db.annotations.insert_one(item)
-            #
-            #     print('done!\n')
-            # except:
-            #     print('no such file: %s/annotations_0.csv...\n'%d)
+            try:
+                print('loading %s/annotations_0.csv...'%d)
+                with open(d+'/annotations_0.csv', 'r') as f:
+                    reader = csv.DictReader(f)
+                    for item in reader:
+                        for k, v in item.items():
+                            try:
+                                item[k] = float(v)
+                            except:
+                                pass
+                        item['pid'] = count
+                        self.db.annotations.insert_one(item)
+
+                print('done!\n')
+            except:
+                print('no such file: %s/annotations_0.csv...\n'%d)
 
 
             # try:
