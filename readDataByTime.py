@@ -16,7 +16,6 @@ class DataProcessor(object):
         dirs = [d[0] for d in os.walk(self.folderName)][1:]
         count=0
         for d in dirs:
-            # try:
             print('loading %s/location_0.csv...'%d)
             with open(d+'/location_0.csv', 'r') as f:
                 reader = csv.DictReader(f)
@@ -25,15 +24,11 @@ class DataProcessor(object):
                         dict = {}
                         dict['t']=i
                         dict['pid']=count
-                        dict['index']=item['index']
-                        dict['name'] = item['name']
-                        self.db.timeBasedLocation.insert_one(dict)
+                        dict['locationIndex']=item['index']
+                        dict['locationName'] = item['name']
+                        self.db.timeBased.insert_one(dict)
                 print('done!\n')
-            count+=1
 
-        count = 0
-        for d in dirs:
-            # try:
             print('loading %s/annotations_0.csv...' % d)
             with open(d + '/annotations_0.csv', 'r') as f:
                 reader = csv.DictReader(f)
@@ -42,9 +37,21 @@ class DataProcessor(object):
                         dict = {}
                         dict['t'] = i
                         dict['pid'] = count
-                        dict['index'] = item['index']
-                        dict['name'] = item['name']
-                        self.db.timeBasedAnnotations.insert_one(dict)
+                        dict['annotationsIndex'] = item['index']
+                        dict['annotationsName'] = item['name']
+
+                        # try:
+                        a = self.db.timeBased.update(
+                            {'t': i, 'pid': count},
+                            {'$set':
+                                {
+                                    'annotationsIndex': item['index'],
+                                    'annotationsName': item['name']
+                                }
+                             }
+                        )
+                        if a['n']<1:
+                            self.db.timeBased.insert_one(dict)
             print('done!\n')
             count += 1
             # except:
