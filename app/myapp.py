@@ -2,7 +2,7 @@ from bokeh.charts import Donut, Bar
 from bokeh.layouts import widgetbox, row, layout, column
 from bokeh.models.widgets import TextInput, Slider, PreText, Select
 from bokeh.plotting import figure, output_file, curdoc
-
+from bokeh.models import LinearAxis, Range1d
 from pymongo import MongoClient
 import pandas as pd
 
@@ -28,7 +28,7 @@ class WebPage:
              layout(
                  [[self.firstMap(),self.groundMap()],
                  [self.annotationDistribution('all'), self.locationDistribution('all')],
-                 [self.annotationBar('all', 'all')], [stackBar[0]],[stackBar[1]]]
+                 [self.annotationBar('all', 'all')], [stackBar[0]],[stackBar[1]],[self.ganttChart(0)]]
              )]
         ])
 
@@ -42,18 +42,18 @@ class WebPage:
                     [[self.firstMap(), self.groundMap()],
                      [self.annotationDistribution(pid), self.locationDistribution(pid)],
                      [self.annotationBar(pid, roomValue)], [sb[0]],
-                     [sb[1]]
+                     [sb[1]],[self.ganttChart(pid)]
                      ])
             except:
                 pass
 
         def updateTime(_, __, value):
             try:
-                location = self.db.timeBasedLocation.find({'t': int(value), 'pid': int(pid.value)})
-                annotation = self.db.timeBasedAnnotations.find({'t': int(value), 'pid': int(pid.value)})
+                location = self.db.timeBased.find({'t': int(value), 'pid': int(personId.value)})
+                annotation = self.db.timeBased.find({'t': int(value), 'pid': int(personId.value)})
 
-                locationText.text = 'Location: %s' % location[0]['name']
-                annotationText.text = 'Annotation: %s' % annotation[0]['name']
+                locationText.text = 'Location: %s' % location[0]['locationName']
+                annotationText.text = 'Annotation: %s' % annotation[0]['annotationsName']
             except:
                 locationText.text = 'Location: Unknown'
                 annotationText.text = 'Annotation: Unknown'
@@ -227,6 +227,26 @@ class WebPage:
                   [y, kitchen_y, bedRoom_y, hall_y, lounch_y],
                   fill_color=['transparent', 'transparent', 'transparent', 'transparent', 'transparent', 'transparent'],
                   line_width=1)
+        return p
+
+    def ganttChart(self, pid):
+        if pid=='all':
+            pid=0
+        cursor = self.db.location.find({'pid': pid})
+        s = []
+        e = []
+        index = []
+        for i in cursor:
+            s.append(float(i['start']))
+            e.append(float(i['end']))
+            index.append(int(i['index']))
+
+        p = figure(plot_width=400, plot_height=400)
+        # p = figure(plot_width=400, plot_height=400, y_range=(-1, 10))
+        top = [index[i] + 0.5 for i in range(len(s))]
+        # p.extra_y_ranges = {"foo": Range1d(['a','b','c','a','b','c','a','b','c','a','b','c'])}
+        p.quad(top=top, bottom=index, left=s,right=e, color="#B3DE69")
+        # p.add_layout(LinearAxis(y_range_name="foo"), 'right')
         return p
 
 w = WebPage()
