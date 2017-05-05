@@ -29,15 +29,19 @@ class WebPage:
         # # ---------- annotation bar ----------
         x, y, c = self.annotation_bar('all', 'all')
         self.barSource = ColumnDataSource(dict(x=x, y=y, c=c))
-        self.bar = figure(plot_width=1200, plot_height=320, x_range=self.barSource.data["x"])
+        self.bar = figure(plot_width=1200, plot_height=320, x_range=self.barSource.data["x"], title='Annotation Distribution Bar Chart')
         self.bar.vbar(source=self.barSource, x='x', top='y', bottom=0, width=0.5,color='c')
+        self.bar.xaxis.axis_label = 'Annotaitions'
+        self.bar.yaxis.axis_label = 'Time Spending'
         # ---------- annotation bar ----------
 
         # ---------- stack1 bar ----------
         b, t, x, r, c, l = self.annotation_stack_bar('all')
         self.stack1Source = ColumnDataSource(dict(x=x, t=t, b=b, c=c, l=l))
-        self.stack1 = figure(plot_width=1200, plot_height=320, x_range=r)
+        self.stack1 = figure(plot_width=1200, plot_height=320, x_range=r, title='Annotation Distribution Stacked Bar Chart')
         self.stack1.vbar(source=self.stack1Source, x='x', top='t', bottom='b', width=0.5, color='c', legend='l')
+        self.stack1.xaxis.axis_label = 'Annotaitions'
+        self.stack1.yaxis.axis_label = 'Time Spending'
         # ---------- stack1 bar ----------
 
         # ---------- ground map ----------
@@ -46,6 +50,8 @@ class WebPage:
         self.ground = figure(plot_width=400, plot_height=400, title='Ground Floor')
         self.ground.patches(source=self.groundSource, xs='x', ys='y', fill_color='c', line_width=1)
         self.ground.text(source=self.groundSource, x='px', y='py', text='t')#, text_font_style="bold", text_font_size="15pt", **text_props)
+        self.ground.xaxis.axis_label = 'x'
+        self.ground.yaxis.axis_label = 'y'
         # ---------- ground map ----------
 
         # ---------- first map ----------
@@ -54,14 +60,18 @@ class WebPage:
         self.first = figure(plot_width=400, plot_height=400, title='First Floor')
         self.first.patches(source=self.firstSource, xs='x', ys='y', fill_color='c', line_width=1)
         self.first.text(source=self.firstSource, x='px', y='py', text='t')
+        self.first.xaxis.axis_label = 'x'
+        self.first.yaxis.axis_label = 'y'
         # ---------- first map ----------
 
         # ---------- gantt chart ----------
         t, b, s, e = self.gantt_chart('all')
         self.ganttSource = ColumnDataSource(dict(t=t, b=b, s=s, e=e, lx=[0,0],ly=[0,10]))
-        self.gantt = figure(plot_width=1200, plot_height=320, title='Gantt Chart')
+        self.gantt = figure(plot_width=1200, plot_height=320, title='Gantt Chart for Locations')
         self.gantt.quad(source=self.ganttSource, top='t', bottom='b', left='s', right='e', color="#B3DE69")
         self.gantt.line(source=self.ganttSource, x='lx', y='ly', line_width=1)
+        self.gantt.xaxis.axis_label = 'Time'
+        self.gantt.yaxis.axis_label = 'Index of Locations'
         # ---------- gantt chart ----------
 
 
