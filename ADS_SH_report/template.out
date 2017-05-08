@@ -1,0 +1,27 @@
+\BOOKMARK [1][-]{Doc-Start}{Introduction}{}% 1
+\BOOKMARK [2][-]{subsection.0.1}{The Problem}{Doc-Start}% 2
+\BOOKMARK [2][-]{subsection.0.2}{Aims and Objectives}{Doc-Start}% 3
+\BOOKMARK [2][-]{subsection.0.3}{Assumptions and Scope}{Doc-Start}% 4
+\BOOKMARK [1][-]{section.1}{Data Science}{}% 5
+\BOOKMARK [2][-]{subsection.1.1}{What is Data Science?}{section.1}% 6
+\BOOKMARK [2][-]{subsection.1.2}{Data Science Tools}{section.1}% 7
+\BOOKMARK [3][-]{subsubsection.1.2.1}{MongoDB}{subsection.1.2}% 8
+\BOOKMARK [3][-]{subsubsection.1.2.2}{Python}{subsection.1.2}% 9
+\BOOKMARK [1][-]{section.2}{Data Science System Architecture}{}% 10
+\BOOKMARK [2][-]{subsection.2.1}{Storing and loading data}{section.2}% 11
+\BOOKMARK [2][-]{subsection.2.2}{Data wrangling}{section.2}% 12
+\BOOKMARK [3][-]{subsubsection.2.2.1}{Data cleaning}{subsection.2.2}% 13
+\BOOKMARK [3][-]{subsubsection.2.2.2}{Missing data}{subsection.2.2}% 14
+\BOOKMARK [3][-]{subsubsection.2.2.3}{Data aggregation}{subsection.2.2}% 15
+\BOOKMARK [2][-]{subsection.2.3}{Data exploration and visualisation}{section.2}% 16
+\BOOKMARK [3][-]{subsubsection.2.3.1}{Web app interactive visualisation}{subsection.2.3}% 17
+\BOOKMARK [3][-]{subsubsection.2.3.2}{Video visualisation}{subsection.2.3}% 18
+\BOOKMARK [3][-]{subsubsection.2.3.3}{Jupyter notebook visualisations}{subsection.2.3}% 19
+\BOOKMARK [1][-]{section.3}{Results}{}% 20
+\BOOKMARK [2][-]{subsubsection.3.0.1}{Web app}{section.3}% 21
+\BOOKMARK [3][-]{subsubsection.3.0.2}{Video}{subsubsection.3.0.1}% 22
+\BOOKMARK [3][-]{subsubsection.3.0.3}{Jupyter notebook}{subsubsection.3.0.1}% 23
+\BOOKMARK [1][-]{section.4}{Insights}{}% 24
+\BOOKMARK [1][-]{section.5}{Future Work}{}% 25
+\BOOKMARK [1][-]{section.6}{Conclusion}{}% 26
+\BOOKMARK [1][-]{section.6}{References}{}% 27
