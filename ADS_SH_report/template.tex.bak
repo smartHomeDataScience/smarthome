@@ -18,11 +18,10 @@
 \documentclass[fleqn,10pt]{SelfArx} % Document font size and equations flushed left
 
 \usepackage[english]{babel} % Specify a different language here - english by default
-\usepackage{lipsum} % Required to insert dummy text. To be removed otherwise
 \usepackage[utf8]{inputenc}
 \usepackage{url}
 \usepackage{nameref}
-\usepackage[none]{hyphenat}
+
 
 %----------------------------------------------------------------------------------------
 %	COLUMNS
@@ -64,7 +63,8 @@
 %\affiliation{\textsuperscript{3}\textit{Username: jw16097, Candidate number: 32985}} % Author affiliation
 %\affiliation{\textsuperscript{4}\textit{Username: nm16667, Candidate number: 32928}} % Author affiliation
 %\affiliation{\textsuperscript{5}\textit{Username: bz16563, Candidate number: 33498}} % Author affiliation
-\affiliation{*\textbf{Department of Computer Science, University of Bristol, Bristol, United Kingdom}} 
+\affiliation{*\textbf{Department of Computer Science, University of Bristol.}} 
+\affiliation{*\textbf{Repository at \url{https://github.com/smartHomeDataScience}}}
 
 \Keywords{data science, sensor, video, data, programming, visualisation, statistics, machine learning} % Keywords - if you don't want any simply remove all the text between the curly brackets
 \newcommand{\keywordname}{Keywords} % Defines the keywords heading name
@@ -74,7 +74,7 @@
 %----------------------------------------------------------------------------------------
 
 \Abstract{
-Sensors, in their many forms, have the ability to transform how people live. Introducing sensors into a home could potentially give us the ability to analyse and subsequently predict frequent activities in order to make homes smarter. In this project, we seek to gain an understanding of sensor data obtained from within a home environment. Using data obtained obtained from a wrist-worn accelerometer, video and depth (RGB-D) data and passive environmental sensors in a home context, we aim to gain insights into the actions and activities conducted by the participants. The data is mainly explored from a visualisation standpoint, and the main deliverable of the project is a web application which enables quick, and easy interactive visualisation of the data.
+Sensors, in their many forms, have the ability to transform how people live. Introducing sensors into a home could potentially give us the ability to analyse and subsequently predict frequent activities in order to make homes smarter. In this project, we seek to gain an understanding of sensor data obtained from within a home environment. Using data obtained from a wrist-worn accelerometer, video and depth (RGB-D) data and passive environmental sensors in a home context, we aim to gain insights into the actions and activities conducted by the participants. The data is mainly explored from a visualisation standpoint, and the main deliverable of the project is a web application which enables quick, and easy interactive visualisation of the data.
 ~}
 
 %----------------------------------------------------------------------------------------
@@ -235,7 +235,7 @@ To aid clarity on some of the functionality, Figure \ref{fig:slider} shows an ex
 \end{figure}
 
 \subsubsection{Video visualisation}
-Since video data came in the form of bounding box coordinates (for participants’ privacy), the MLP would benefit from viewing something more friendly to the human eye to see, in a real-life setting, how some parts of a sequence happened. Hence, the video visualisations were a creative way to solve this problem, particularly considering the location photograph in the background dynamically changes as the model of the participant (a red box) also moves around the home. Figure xx shows what the video visualisation tool looks like. Note that in real life, this visualisation shows dynamic backgrounds and motion of the bounding box as time progresses. \\
+Since video data came in the form of bounding box coordinates (for participants’ privacy), the MLP would benefit from viewing something more friendly to the human eye to see, in a real-life setting, how some parts of a sequence happened. Hence, the video visualisations were a creative way to solve this problem, particularly considering the location photograph in the background dynamically changes as the model of the participant (a red box) also moves around the home. Figure \ref{fig:video} shows what the video visualisation tool looks like. Note that in real life, this visualisation shows dynamic backgrounds and motion of the bounding box as time progresses. \\
 
 \begin{figure}[!h] \centering
 	\includegraphics[scale=0.4]{video} 
@@ -244,7 +244,7 @@ Since video data came in the form of bounding box coordinates (for participants�
 \end{figure}
 
 \subsubsection{Jupyter notebook visualisations}
-The Jupyter notebooks allowed interactive execution and sharing of Python code, and supplemented the two forms of visualisation above by allowing interactive graphing of the data. Most of the stand alone figures included above were created in Jupyter notebook. Due to the interactivity of Jupyter notebooks, we could write code that could easily be changed for further visualisation by the MLP as and when needed. For example, to investigate if all sequences are the same, the MLP could plot two gantt charts next to each other, such as in Figure xx below. \\
+The Jupyter notebooks allowed interactive execution and sharing of Python code, and supplemented the two forms of visualisation above by allowing interactive graphing of the data. Most of the stand alone figures included above were created in Jupyter notebook. Due to the interactivity of Jupyter notebooks, we could write code that could easily be changed for further visualisation by the MLP as and when needed. For example, to investigate if all sequences are the same, the MLP could plot two gantt charts next to each other, such as in Figure \ref{fig:seq-comp} below. \\
 
 \begin{figure}[!h] \centering
 	\includegraphics[scale=0.3]{seq-comp} 
